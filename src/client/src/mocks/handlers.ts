@@ -1,3 +1,258 @@
 import { rest } from "msw";
 
-export const handlers = [rest.get("*/", (req, res, ctx) => {})];
+export const handlers = [
+  rest.get("*/feed.json", (req, res, ctx) => {
+    res(
+      ctx.json([
+        {
+          data: [
+            {
+              id: "6318751da037be08c3b94046",
+              userId: "6282267febfcb07f771359c7",
+              username: "craftyfun",
+              avatar:
+                "https://images.tedooo.com/biz/6282267febfcb07f771359c7/5173eadb-0c97-4850-8892-9df4c442c238.jpg",
+              shopName: "Crafts ideas",
+              shopId: "628227cdebfcb07f771359ce",
+              images: [
+                "https://images.tedooo.com/biz/6282267febfcb07f771359c7/d2b86a82-a665-4759-b832-d48f292e2c0b.jpg",
+              ],
+              comments: 263,
+              date: "2022-09-06T14:40:29.347Z",
+              text: "Upload the last 3 pictures of handmade items you\u2019ve made or bought!",
+              likes: 2142,
+              didLike: false,
+              premium: true,
+            },
+            {
+              id: "6317155754c28a17ace8f82c",
+              userId: "62e984eca4ff286b57699578",
+              username: "melissabel",
+              avatar:
+                "https://images.tedooo.com/biz/62e984eca4ff286b57699578/01fda2c9-85c8-44f8-a1c7-f20a628c9dfb.jpg",
+              images: [
+                "https://images.tedooo.com/biz/62e984eca4ff286b57699578/6dbc294b-4959-44f3-aca0-ba82799e28ab.jpg",
+              ],
+              comments: 11,
+              date: "2022-09-06T09:39:35.727Z",
+              text: "Hagámoslo el post más largo de \"Hecho A Mano\". Publica cualquier manualidad que hayas hecho,\n            Vamos!\n        ",
+              likes: 112,
+              didLike: false,
+              premium: false,
+            },
+            {
+              id: "6319f52ed519ba15e06d72a7",
+              userId: "631762c2a2967db5fdc89596",
+              username: "vintage57",
+              avatar:
+                "https://images.tedooo.com/biz/631762c2a2967db5fdc89596/e7fa1bd9-adb8-4ba5-bf2b-80e8909ed4ed.jpg",
+              shopName: "Vintage 57",
+              shopId: "6317638ba2967db5fdc895a4",
+              images: [
+                "https://images.tedooo.com/biz/631762c2a2967db5fdc89596/60e88bbd-1a16-46df-861d-99dbf3076230.jpg",
+                "https://images.tedooo.com/biz/631762c2a2967db5fdc89596/be5ea7dc-69cc-451e-b641-be09e6d0c3cd.jpg",
+                "https://images.tedooo.com/biz/631762c2a2967db5fdc89596/760233af-57dd-400c-8942-213461d9cea4.jpg",
+              ],
+              comments: 0,
+              date: "2022-09-08T13:59:10.012Z",
+              text: "some new teal & black glitter Halloweenies",
+              likes: 102,
+              didLike: true,
+              premium: false,
+            },
+            {
+              id: "6319ec1a6b1b2acc7df75e15",
+              userId: "6254e599f625234b67ec881f",
+              username: "zenmalas",
+              avatar:
+                "https://images.tedooo.com/6254e599f625234b67ec881f/945dea80-1002-4e24-af6b-7a276cf6de07.jpg",
+              shopName: "Shop number",
+              shopId: "6254e7f35596798fd53199fd",
+              images: [
+                "https://images.tedooo.com/biz/6254e599f625234b67ec881f/a5797c4c-cc1e-4387-9107-dec8a8af7638.jpg",
+              ],
+              comments: 0,
+              date: "2022-09-08T13:20:26.478Z",
+              text: "",
+              likes: 945,
+              didLike: true,
+              premium: false,
+            },
+            {
+              id: "6319eb6cd519ba15e06d7290",
+              userId: "6318e42f1e092fadca580648",
+              username: "bmkapparel",
+              avatar:
+                "https://images.tedooo.com/biz/6318e42f1e092fadca580648/d1d767f5-8956-4ad4-9ed8-30ee923bc6b2.jpg",
+              shopName: "BMK Apparel & More",
+              shopId: "6318e5d4e475b6486f6e7524",
+              images: [
+                "https://images.tedooo.com/biz/6318e42f1e092fadca580648/5e4a4b77-fcb3-4b3f-978a-bacdd778daa4.jpg",
+              ],
+              comments: 0,
+              date: "2022-09-08T13:17:32.762Z",
+              text: "95% polyester, soft feel, unisex sizing",
+              likes: 0,
+              didLike: false,
+              premium: false,
+            },
+            {
+              id: "6319eacd6b1b2acc7df75e08",
+              userId: "6318e42f1e092fadca580648",
+              username: "bmkapparel",
+              avatar:
+                "https://images.tedooo.com/biz/6318e42f1e092fadca580648/d1d767f5-8956-4ad4-9ed8-30ee923bc6b2.jpg",
+              shopName: "BMK Apparel & More",
+              shopId: "6318e5d4e475b6486f6e7524",
+              images: [
+                "https://images.tedooo.com/biz/6318e42f1e092fadca580648/2f10fbf3-1202-438c-8ab1-835594f212a4.jpg",
+                "https://images.tedooo.com/biz/6318e42f1e092fadca580648/81930fac-518d-4841-b968-ec0a5d0e6f3c.jpg",
+                "https://images.tedooo.com/biz/6318e42f1e092fadca580648/3a5d3717-8aa1-485c-b0cd-c3ddc7415335.jpg",
+                "https://images.tedooo.com/biz/6318e42f1e092fadca580648/0de6e932-8275-43d2-9ac9-c992aba89b65.jpg",
+              ],
+              comments: 0,
+              date: "2022-09-08T13:14:53.63Z",
+              text: "Shirts added!! More to come 😉😳",
+              likes: 11,
+              didLike: false,
+              premium: false,
+            },
+            {
+              id: "6319e5ca6b1b2acc7df75ded",
+              userId: "6318e42f1e092fadca580648",
+              username: "bmkapparel",
+              avatar:
+                "https://images.tedooo.com/biz/6318e42f1e092fadca580648/d1d767f5-8956-4ad4-9ed8-30ee923bc6b2.jpg",
+              shopName: "BMK Apparel & More",
+              shopId: "6318e5d4e475b6486f6e7524",
+              images: [
+                "https://images.tedooo.com/biz/6318e42f1e092fadca580648/2737e134-bd76-4da1-af06-7cb0ae21ce20.jpg",
+                "https://images.tedooo.com/biz/6318e42f1e092fadca580648/ef1c5b88-77fa-46a7-998c-7a79a40cd06d.jpg",
+                "https://images.tedooo.com/biz/6318e42f1e092fadca580648/bcaf82dd-15d5-4ff0-98f3-3f9396de9e0b.jpg",
+                "https://images.tedooo.com/biz/6318e42f1e092fadca580648/4805fe3f-b362-44ce-b43e-dc63dbc12643.jpg",
+                "https://images.tedooo.com/biz/6318e42f1e092fadca580648/3968d009-7e99-4b24-beee-789a03df823d.jpg",
+                "https://images.tedooo.com/biz/6318e42f1e092fadca580648/5b1622f5-fae3-46d1-9256-8de9fdd71181.jpg",
+              ],
+              comments: 0,
+              date: "2022-09-08T12:53:30.104Z",
+              text: "Got some tumblers with toppers added!!! 😁 So excited to be here",
+              likes: 0,
+              didLike: false,
+              premium: false,
+            },
+            {
+              id: "6319e5ab6b1b2acc7df75de9",
+              userId: "6319d88d6b1b2acc7df75d6f",
+              username: "alliescrochet",
+              avatar:
+                "https://images.tedooo.com/biz/6319d88d6b1b2acc7df75d6f/59f32320-dbbf-42e7-84a3-4500c41d3900.jpg",
+              shopName: "Allie\u2019s Crochet",
+              shopId: "6319e4c76b1b2acc7df75de5",
+              images: [
+                "https://images.tedooo.com/biz/6319d88d6b1b2acc7df75d6f/30d92297-66c3-4b5c-8e6f-2576acfc23ee.jpg",
+                "https://images.tedooo.com/biz/6319d88d6b1b2acc7df75d6f/dc1126ca-1c3f-4a69-be54-0f2ea5062d3c.jpg",
+                "https://images.tedooo.com/biz/6319d88d6b1b2acc7df75d6f/c2e17bda-3e6f-4fd1-acb7-fa9ea027737f.jpg",
+              ],
+              comments: 0,
+              date: "2022-09-08T12:52:59.227Z",
+              text: "Sharing my most recent project up on my page for sale:)",
+              likes: 0,
+              didLike: false,
+              premium: false,
+            },
+            {
+              id: "6319e53bdd7574e7e49c1adc",
+              userId: "63193f531e092fadca580842",
+              username: "onelittlespark67",
+              avatar:
+                "https://images.tedooo.com/biz/63193f531e092fadca580842/27ffb567-8b27-4c71-ac17-1715b9132858.jpg",
+              shopName: "One Little Spark",
+              shopId: "6319e502dd7574e7e49c1ada",
+              images: [
+                "https://images.tedooo.com/biz/63193f531e092fadca580842/ebcc653d-db58-42cb-9901-851bab570abf.jpg",
+              ],
+              comments: 0,
+              date: "2022-09-08T12:51:07.171Z",
+              text: "This little bag packs quite a punch. With the deeper pockets of the bow you are still able to fit quite a\n            bit in this bag, while still keeping it compact and you hands free. I am able to put a wallet, lip glosses\n            and even my mini umbrella when I am at the parks. Bag is available in a variety of print options.\n        ",
+              likes: 0,
+              didLike: false,
+              premium: false,
+            },
+            {
+              id: "6319e4bbd519ba15e06d7284",
+              userId: "6318a379a2967db5fdc89c22",
+              username: "ninetyfour",
+              avatar:
+                "https://images.tedooo.com/biz/6318a379a2967db5fdc89c22/613375d9-d54d-4858-b75d-f679d163af71.jpg",
+              shopName: "Ninety 94 Four",
+              shopId: "6318c4caa2967db5fdc89da6",
+              images: [
+                "https://images.tedooo.com/biz/6318a379a2967db5fdc89c22/66ff10e5-0027-4ccf-8222-31238cfb3cfe.jpg",
+              ],
+              comments: 0,
+              date: "2022-09-08T12:48:59.023Z",
+              text: "STYLE: Starry Night (black & gold glitter)\n\nHandmade Halloween earrings\nMade with UV Resin\n\u202212mm\n            in size\n\u2022choice between gold and silver earrings\n\u2022silicone back included\n\u2022Earring Backs are Made\n            of durable \n metallic material without lead, nickel and \n cadmium, anti-sensitive and safe to wear.\n        ",
+              likes: 0,
+              didLike: false,
+              premium: false,
+            },
+            {
+              id: "6319e4a9d519ba15e06d7283",
+              userId: "6318a379a2967db5fdc89c22",
+              username: "ninetyfour",
+              avatar:
+                "https://images.tedooo.com/biz/6318a379a2967db5fdc89c22/613375d9-d54d-4858-b75d-f679d163af71.jpg",
+              shopName: "Ninety 94 Four",
+              shopId: "6318c4caa2967db5fdc89da6",
+              images: [
+                "https://images.tedooo.com/biz/6318a379a2967db5fdc89c22/1d5fe1e8-5357-4931-b1b9-cbea9e7347e2.jpg",
+              ],
+              comments: 0,
+              date: "2022-09-08T12:48:41.496Z",
+              text: "STYLE: The Pink Glow\nHandmade Halloween earrings\nMade with UV Resin\n\u202212mm in size\n\u2022choice\n            between gold and silver earrings\n\u2022silicone back included\n\u2022Earring Backs are Made of durable \n\n            metallic material without lead, nickel and \n cadmium, anti-sensitive and safe to wear.\n        ",
+              likes: 0,
+              didLike: true,
+              premium: false,
+            },
+            {
+              id: "6319e49fd519ba15e06d7282",
+              userId: "6318a379a2967db5fdc89c22",
+              username: "ninetyfour",
+              avatar:
+                "https://images.tedooo.com/biz/6318a379a2967db5fdc89c22/613375d9-d54d-4858-b75d-f679d163af71.jpg",
+              shopName: "Ninety 94 Four",
+              shopId: "6318c4caa2967db5fdc89da6",
+              images: [
+                "https://images.tedooo.com/biz/6318a379a2967db5fdc89c22/f0e19a03-d780-4195-96d4-8f09c8462d73.jpg",
+              ],
+              comments: 0,
+              date: "2022-09-08T12:48:31.05Z",
+              text: "So cute and funny!\nGreat for bachelorette party gifts!\nThank You Cum Again - clean up towel\nMeasures\n            approximately 7 x 13.5 inches folded, as shown in photo.\nBlack HTV in 100% cotton flour sack tea towel.\n\n        ",
+              likes: 0,
+              didLike: false,
+              premium: false,
+            },
+            {
+              id: "6319e48dd519ba15e06d7280",
+              userId: "6318a379a2967db5fdc89c22",
+              username: "ninetyfour",
+              avatar:
+                "https://images.tedooo.com/biz/6318a379a2967db5fdc89c22/613375d9-d54d-4858-b75d-f679d163af71.jpg",
+              shopName: "Ninety 94 Four",
+              shopId: "6318c4caa2967db5fdc89da6",
+              images: [
+                "https://images.tedooo.com/biz/6318a379a2967db5fdc89c22/d5a2d2e6-1d95-429d-94b6-d699cf75755d.jpg",
+              ],
+              comments: 0,
+              date: "2022-09-08T12:48:13.24Z",
+              text: "My WAP Towel - clean up towel - cum rag\nMeasures approximately 7x13.5\n\nGreat for bachelorette\n            party gifts, or for a couples gift! \nMeasures approximately 7x13.5 inches folded, as shown in photo.\n            \nBlack Htv on 100% cotton flour sack tea towel.\n        ",
+              likes: 0,
+              didLike: false,
+              premium: false,
+            },
+          ],
+        },
+      ])
+    );
+  }),
+];

@@ -2,7 +2,7 @@ import { PreloadedState } from "@reduxjs/toolkit";
 import { render, RenderOptions } from "@testing-library/react";
 import React from "react";
 import { Provider } from "react-redux";
-import { RootState, setupStore } from "../redux/store";
+import { createAppStore, RootState } from "../redux/store";
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
   preloadedState?: PreloadedState<RootState>;
@@ -14,7 +14,7 @@ export const renderUI = (
   initialEntries = ["/"],
   {
     preloadedState = {} as RootState,
-    store = setupStore(preloadedState),
+    store = createAppStore(preloadedState as RootState),
     ...renderOptions
   }: ExtendedRenderOptions = {}
 ) => {
