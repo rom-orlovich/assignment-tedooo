@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 
-interface Post {
+export interface PostAPI {
   id: string;
   userId: string;
   username: string;
@@ -24,7 +24,7 @@ export const postsAPI = createApi({
   tagTypes: ["post"],
   reducerPath: "postsAPI",
   endpoints: (builder) => ({
-    getPosts: builder.query<ResultAPI<Post[]>, unknown>({
+    getPosts: builder.query<ResultAPI<PostAPI[]>, unknown>({
       providesTags: (result) =>
         result?.data
           ? [

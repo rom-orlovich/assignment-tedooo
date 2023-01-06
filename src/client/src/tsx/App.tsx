@@ -1,11 +1,12 @@
+import { Container } from "@mui/material";
 import React from "react";
 import Feed from "./components/Feed/Feed";
 
 function App() {
   return (
-    <div className="App">
+    <Container maxWidth="lg">
       <Feed />
-    </div>
+    </Container>
   );
 }
 
