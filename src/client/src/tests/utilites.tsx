@@ -2,21 +2,17 @@ import { PreloadedState } from "@reduxjs/toolkit";
 import { render, RenderOptions } from "@testing-library/react";
 import React from "react";
 import { Provider } from "react-redux";
-import { createAppStore, RootState } from "../redux/store";
+import { AppStore, createAppStore, RootState } from "../redux/store";
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
   preloadedState?: PreloadedState<RootState>;
-  store?: RootState;
+  store?: AppStore;
 }
 
 export const renderUI = (
   UI: JSX.Element,
   initialEntries = ["/"],
-  {
-    preloadedState = {} as RootState,
-    store = createAppStore(preloadedState as RootState),
-    ...renderOptions
-  }: ExtendedRenderOptions = {}
+  { store = createAppStore(), ...renderOptions }: ExtendedRenderOptions = {}
 ) => {
   // const testRoutes = createMemoryRouter([], {
   //   initialEntries,

@@ -5,28 +5,37 @@ import {
   EnhancedStore,
   PreloadedState,
 } from "@reduxjs/toolkit";
+import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import { postsAPI } from "./api/postsAPI";
 
 const configureStoreOptions = {
   reducer: {},
 } as const;
 
-export const createAppStore = <T extends EnhancedStore<any>>(
-  preloadedState?: T
-) =>
+export const createAppStore = () =>
   configureStore({
-    reducer: {},
-    middleware(getDefaultMiddleware) {
-      return [...getDefaultMiddleware(), postsAPI.middleware];
+    reducer: {
+      postsAPI: postsAPI.reducer,
     },
-    preloadedState,
+    middleware(getDefaultMiddleware) {
+      return [...getDefaultMiddleware(), postsAPI.middleware] as any;
+    },
   });
-export const store = createAppStore();
+export const store = configureStore({
+  reducer: {
+    postsAPI: postsAPI.reducer,
+  },
+  middleware(getDefaultMiddleware) {
+    return [...getDefaultMiddleware(), postsAPI.middleware] as any;
+  },
+});
 
 export type AppDispatch = typeof store.dispatch;
 
 export type RootState = ReturnType<typeof store.getState>;
+export type AppStore = ReturnType<typeof createAppStore>;
 
+setupListeners(store.dispatch);
 // export const setupStore = (
 //   preloadedState?: PreloadedState<RootState>
 // ): EnhancedStore<RootState> =>

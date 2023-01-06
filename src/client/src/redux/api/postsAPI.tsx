@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 
 interface Post {
   id: string;
@@ -18,12 +18,15 @@ interface Post {
 type ResultAPI<T> = { data: T };
 
 export const postsAPI = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: "https://dev.tedooo.com/feed.json" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://dev.tedooo.com/",
+  }),
   tagTypes: ["post"],
+  reducerPath: "postsAPI",
   endpoints: (builder) => ({
     getPosts: builder.query<ResultAPI<Post[]>, unknown>({
       providesTags: (result) =>
-        result
+        result?.data
           ? [
               ...result.data.map((post) => ({
                 id: post.id,
@@ -32,7 +35,7 @@ export const postsAPI = createApi({
               { id: "posts_list", type: "post" },
             ]
           : [{ id: "posts_list", type: "post" }],
-      query: () => ({ url: "/" }),
+      query: () => ({ url: "feed.json" }),
     }),
   }),
 });
