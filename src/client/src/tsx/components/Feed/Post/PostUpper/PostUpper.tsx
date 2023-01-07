@@ -33,7 +33,7 @@ function PostUpper({ avatar, shopName, username, date, text }: PostUpperProps) {
       direction={"column"}
       justifyContent="center"
       spacing={1}
-      paddingLeft={5}
+      paddingLeft={2}
     >
       <CardHeader
         avatar={avatarEl}

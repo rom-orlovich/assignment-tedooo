@@ -1,5 +1,6 @@
-import { Stack, Typography } from "@mui/material";
-import { grey } from "@mui/material/colors";
+import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
+import { grey } from "@mui/material/colors/";
 import { formatDistanceToNowStrict } from "date-fns";
 
 import { PickKey } from "../../../../types.utilities";

@@ -1,5 +1,5 @@
 import { Property } from "csstype/index";
-import { SxProps } from "@mui/material";
+
 import { SystemStyleObject } from "@mui/system";
 
 export const flexDir = ({
