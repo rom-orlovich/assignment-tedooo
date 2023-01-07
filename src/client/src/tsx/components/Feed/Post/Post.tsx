@@ -21,8 +21,8 @@ const postSX: SxProps = {
     },
     ".post-text": {
       fontSize: "0.8rem",
-      "*": {
-        p: 0,
+      ":last-child": {
+        padding: 0,
       },
     },
   },
