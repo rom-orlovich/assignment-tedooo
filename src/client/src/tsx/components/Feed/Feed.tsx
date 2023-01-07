@@ -9,6 +9,7 @@ function Feed() {
   if (isLoading || isFetching) return <>loading</>;
   const feedSX: SxProps = {
     "&": {
+      width: "75%",
       margin: "0 auto",
       display: "flex",
       flexDirection: "column",
@@ -16,7 +17,7 @@ function Feed() {
     },
   };
   return (
-    <Box width={"75%"} sx={feedSX}>
+    <Box sx={feedSX}>
       {data?.data.slice(0, 6)?.map((post) => (
         <Post key={post.id} {...post} />
       ))}
