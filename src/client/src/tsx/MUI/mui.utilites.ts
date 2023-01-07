@@ -13,7 +13,7 @@ export const flexDir = ({
   AI?: Property.AlignItems;
   gap?: Property.Gap;
 }): SystemStyleObject => ({
-  flex: "flex",
+  display: "flex",
   flexDirection: flexDir || "row",
   justifyContent: JC,
   alignItems: AI,

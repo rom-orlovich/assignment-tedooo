@@ -1,8 +1,18 @@
-import { Button, Stack, SxProps, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  IconButton,
+  Stack,
+  SxProps,
+  Typography,
+} from "@mui/material";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 
-import ThumbUpOffAltRoundedIcon from "@mui/icons-material/ThumbUpOffAltRounded";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import { green } from "@mui/material/colors";
+import { flexDir } from "../../../../MUI/mui.utilites";
+/* Vector */
 
 function PostFooter() {
   const buttonContainerSX: SxProps = {
@@ -20,11 +30,29 @@ function PostFooter() {
   };
   return (
     <>
-      <Stack direction={"row"} justifyContent="space-between">
-        <Typography component={"span"}>
-          <ThumbUpOffAltRoundedIcon
-            sx={{ backgroundColor: "green", color: "white" }}
-          />{" "}
+      <Stack direction={"row"} justifyContent="space-between" padding={1}>
+        <Typography
+          component={"span"}
+          sx={{ ...flexDir({ AI: "center", JC: "center", gap: "0.2rem" }) }}
+        >
+          <Box
+            component={"i"}
+            sx={{
+              width: "1rem",
+              height: "1rem",
+              background:
+                "linear-gradient(131.96deg, #96DCD0 -8.63%, #6CCEBD -5.56%, #2DB8A1 35.83%, #28A38F 89.48%, #208171 133.94%)",
+              borderRadius: "50%",
+              ...flexDir({ AI: "center", JC: "center" }),
+            }}
+          >
+            <ThumbUpIcon
+              sx={{
+                color: "white",
+                fontSize: "0.6rem",
+              }}
+            />
+          </Box>
           500 Likes
         </Typography>
         <Typography component={"span"}> 6 Comments </Typography>
