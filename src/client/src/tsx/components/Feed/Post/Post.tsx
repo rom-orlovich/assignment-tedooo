@@ -1,26 +1,12 @@
 import React from "react";
-import {
-  Avatar,
-  Card,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Stack,
-  SxProps,
-  Typography,
-} from "@mui/material";
-
-import { formatDistanceToNowStrict } from "date-fns";
-import { grey } from "@mui/material/colors";
+import { Card, SxProps } from "@mui/material";
 
 import { PostAPI } from "../../../../redux/api/postsAPI";
+import PostMain from "./PostMain/PostMain";
+import PostUpper from "./PostUpper/PostUpper";
 
-const cardSX: SxProps = {
+const postSX: SxProps = {
   "&": {
-    display: "flex",
-    flexDirection: "column",
-    gap: "0.5rem",
-
     ".MuiCardHeader-root, .MuiCardContent-root ": {
       padding: "0",
     },
@@ -40,59 +26,12 @@ const cardSX: SxProps = {
   },
 };
 
-function Post({ id, username, avatar, date, shopName, images, text }: PostAPI) {
+function Post({ id, username, avatar, date, shopName, text, images }: PostAPI) {
+  const PostUpperProps = { username, avatar, date, shopName, text };
   return (
-    <Card sx={cardSX} key={id}>
-      <Stack
-        direction={"column"}
-        justifyContent="center"
-        spacing={1}
-        paddingLeft={5}
-      >
-        <CardHeader
-          avatar={
-            <Avatar src={avatar} alt={"user avatar"} aria-label="user-avatar" />
-          }
-          subheader={
-            <Stack direction={"column"} spacing={0}>
-              <Typography color={"black"} fontWeight={500}>
-                {shopName || username}
-              </Typography>
-              <Typography
-                color={"primary"}
-                fontWeight={600}
-                fontSize={"0.8rem"}
-              >
-                {username}
-                <Typography
-                  fontSize={"0.7rem"}
-                  component={"span"}
-                  color={grey[500]}
-                >
-                  {` · ${formatDistanceToNowStrict(new Date(date))}`}
-                </Typography>
-              </Typography>
-            </Stack>
-          }
-        />
-        {text && (
-          <CardContent>
-            <Typography fontSize={"0.9rem"} fontWeight={400}>
-              {text}
-            </Typography>
-          </CardContent>
-        )}
-      </Stack>
-      <Stack direction={"row"}>
-        {images.slice(0, 2).map((img) => (
-          <CardMedia
-            sx={{ minHeight: "20rem", flex: "50%" }}
-            key={img}
-            image={img}
-            component={"image"}
-          />
-        ))}
-      </Stack>
+    <Card sx={postSX} key={id}>
+      <PostUpper {...PostUpperProps} />
+      <PostMain images={images} />
     </Card>
   );
 }
