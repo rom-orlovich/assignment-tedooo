@@ -1,5 +1,5 @@
 import { Property } from "csstype/index";
-import { SxProps } from "@mui/material";
+
 import { SystemStyleObject } from "@mui/system";
 
 export const flexDir = ({
@@ -13,7 +13,7 @@ export const flexDir = ({
   AI?: Property.AlignItems;
   gap?: Property.Gap;
 }): SystemStyleObject => ({
-  flex: "flex",
+  display: "flex",
   flexDirection: flexDir || "row",
   justifyContent: JC,
   alignItems: AI,

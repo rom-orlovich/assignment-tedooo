@@ -4,34 +4,50 @@ import { Card, SxProps } from "@mui/material";
 import { PostAPI } from "../../../../redux/api/postsAPI";
 import PostMain from "./PostMain/PostMain";
 import PostUpper from "./PostUpper/PostUpper";
+import PostFooter from "./PostFooter/PostFooter";
 
 const postSX: SxProps = {
   "&": {
-    ".MuiCardHeader-root, .MuiCardContent-root ": {
-      padding: "0",
-    },
-    ".MuiCardHeader-root": {
-      padding: "0.5rem 0",
-      " .MuiCardHeader-avatar": {
-        marginRight: "0.5rem",
+    ".post-upper": {
+      "*": {
+        padding: 0,
+      },
+      p: "0.5rem 0",
+      pl: 2,
+
+      ".MuiCardHeader-avatar": {
+        marginRight: 1,
       },
     },
-    " .MuiCardContent-root": {
+    ".post-text": {
       fontSize: "0.8rem",
-      "&:last-child": {
-        paddingBottom: "0rem",
-        padding: "0rem",
+      ":last-child": {
+        padding: 0,
       },
     },
   },
 };
 
-function Post({ id, username, avatar, date, shopName, text, images }: PostAPI) {
+function Post({
+  id,
+  username,
+  avatar,
+  date,
+  shopName,
+  text,
+  images,
+  likes,
+  comments,
+  didLike,
+  index,
+}: PostAPI & { index?: number }) {
   const PostUpperProps = { username, avatar, date, shopName, text };
+  const PostFooterProps = { likes, comments, didLike };
   return (
-    <Card sx={postSX} key={id}>
+    <Card data-testid={`${index}-element`} sx={postSX} key={id}>
       <PostUpper {...PostUpperProps} />
       <PostMain images={images} />
+      <PostFooter {...PostFooterProps} />
     </Card>
   );
 }
