@@ -27,13 +27,25 @@ const postSX: SxProps = {
   },
 };
 
-function Post({ id, username, avatar, date, shopName, text, images }: PostAPI) {
+function Post({
+  id,
+  username,
+  avatar,
+  date,
+  shopName,
+  text,
+  images,
+  likes,
+  comments,
+  didLike,
+}: PostAPI) {
   const PostUpperProps = { username, avatar, date, shopName, text };
+  const PostFooterProps = { likes, comments, didLike };
   return (
     <Card sx={postSX} key={id}>
       <PostUpper {...PostUpperProps} />
       <PostMain images={images} />
-      <PostFooter />
+      <PostFooter {...PostFooterProps} />
     </Card>
   );
 }

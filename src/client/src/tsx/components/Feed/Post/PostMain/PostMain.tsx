@@ -6,7 +6,7 @@ function PostMain({ images }: { images: string[] }) {
     <Stack direction={"row"}>
       {images.slice(0, 2).map((img) => (
         <CardMedia
-          sx={{ minHeight: "20rem", flex: "50%" }}
+          sx={{ minHeight: "30rem", flex: "50%" }}
           key={img}
           image={img}
           component="image"
