@@ -1,4 +1,6 @@
+import { fireEvent } from "@testing-library/react";
 import { renderUI } from "../../../../tests/utilites";
+import App from "../../../App";
 import Feed from "../Feed";
 
 describe("test the Feed component", () => {
@@ -12,5 +14,12 @@ describe("test the Feed component", () => {
     expect(posts.length).toBe(6);
   });
 
-  test.todo("test search autocomplete input");
+  test("test search autocomplete input", async () => {
+    screen = renderUI(<></>);
+
+    const searchInput = screen.getAllByPlaceholderText(/Search/i);
+    fireEvent.change(searchInput[0], { target: { value: "a" } });
+    const posts = await screen.findAllByTestId(/post-header/i);
+    expect((posts[0].textContent?.toLowerCase() || "")[0]).toBe("a");
+  });
 });

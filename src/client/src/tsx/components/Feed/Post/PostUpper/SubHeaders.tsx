@@ -10,7 +10,7 @@ type SubHeaderProps = PickKey<PostUpperProps, "shopName" | "username" | "date">;
 function SubHeaders({ username, date, shopName }: SubHeaderProps) {
   return (
     <Stack direction={"column"} spacing={0}>
-      <Typography color={"black"} fontWeight={500}>
+      <Typography color={"black"} fontWeight={500} data-testid="post-header">
         {shopName || username}
       </Typography>
       <Typography color={"primary"} fontWeight={600} fontSize={"0.8rem"}>

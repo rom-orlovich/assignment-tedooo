@@ -17,11 +17,16 @@ import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNone
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import { ReactNode, useState } from "react";
 import TedoooIcon from "./TedoooIcon";
+import { APP_ROUTES } from "../../routes/appRouter";
+import { useDebounceHook } from "../../hooks/useDebounceHook";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import {
+  getFeedFilters,
+  setFilter,
+} from "../../../redux/slices/feedFiltersSlice";
+import { postsAPI } from "../../../redux/api/postsAPI";
+import { uniqueObjArr } from "../../../helpers/functions.utlities";
 
-export enum APP_ROUTES {
-  MESSAGES_ROUTE = "messages",
-  NOTIFICATION_ROUTE = "notifications",
-}
 function NavBar() {
   const AppBarSX: SxProps = {
     "&": {
@@ -97,6 +102,20 @@ function NavBar() {
       icon: <NotificationsNoneOutlinedIcon />,
     },
   ];
+  const { searchValue } = useAppSelector(getFeedFilters);
+  // const value = useDebounceHook(searchValue, 500);
+  const { isLoading, isFetching, data } = postsAPI.useGetPostsQuery({});
+  const dispatch = useAppDispatch();
+  const options = data?.data
+    ? uniqueObjArr(
+        data?.data.map((post) => ({
+          id: post.id,
+          title: post.shopName || post.username,
+        })),
+        "title"
+      )
+    : [];
+  const their;
   return (
     <AppBar sx={AppBarSX} position="fixed">
       <Toolbar component={Stack} variant="regular" direction={"row"}>
@@ -110,17 +129,30 @@ function NavBar() {
             <TedoooIcon />
           </IconButton>
           <Autocomplete
+            onInputChange={(e, value) => {
+              dispatch(setFilter(value));
+            }}
             id="free-solo-demo"
+            isOptionEqualToValue={(option, value) => option.id === value.id}
+            getOptionLabel={(option) =>
+              typeof option === "object" ? option.title : String(option)
+            }
             freeSolo
-            options={["s"]}
+            options={options}
+            renderOption={(props, option) => (
+              <li {...props} key={option.id}>
+                {option.title}
+              </li>
+            )}
             className="search-input"
             renderInput={(params) => (
               <div ref={params.InputProps.ref}>
                 <SearchIcon />
+
                 <input
                   type="text"
                   {...params.inputProps}
-                  placeholder={"Search"}
+                  placeholder="Search"
                 />
               </div>
             )}
