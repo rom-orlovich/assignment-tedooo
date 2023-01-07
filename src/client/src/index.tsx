@@ -14,22 +14,21 @@ export const theme = createTheme({
   typography: { fontFamily: "DM Sans" },
   spacing: 8,
 });
+
+export const appRouter = {
+  path: "/",
+  element: <App />,
+  children: [
+    { path: APP_ROUTES.MESSAGES_ROUTE, element: <App /> },
+    { path: APP_ROUTES.NOTIFICATION_ROUTE, element: <App /> },
+  ],
+};
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <RouterProvider
-          router={createBrowserRouter([
-            {
-              path: "/",
-              element: <App />,
-              children: [
-                { path: APP_ROUTES.MESSAGES_ROUTE, element: <App /> },
-                { path: APP_ROUTES.NOTIFICATION_ROUTE, element: <App /> },
-              ],
-            },
-          ])}
-        />
+        <RouterProvider router={createBrowserRouter([appRouter])} />
       </ThemeProvider>
     </Provider>
   </React.StrictMode>
