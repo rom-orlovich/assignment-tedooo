@@ -8,20 +8,21 @@ import PostFooter from "./PostFooter/PostFooter";
 
 const postSX: SxProps = {
   "&": {
-    ".MuiCardHeader-root, .MuiCardContent-root ": {
-      padding: "0",
-    },
-    ".MuiCardHeader-root": {
-      padding: "0.5rem 0",
-      " .MuiCardHeader-avatar": {
+    ".post-upper": {
+      "*": {
+        padding: 0,
+      },
+      p: "0.5rem 0",
+      pl: 2,
+
+      ".MuiCardHeader-avatar": {
         marginRight: 1,
       },
     },
-    " .MuiCardContent-root": {
+    ".post-text": {
       fontSize: "0.8rem",
-      "&:last-child": {
-        paddingBottom: "0rem",
-        padding: "0rem",
+      "*": {
+        p: 0,
       },
     },
   },

@@ -17,10 +17,10 @@ export type PostUpperProps = PickKey<
 function PostUpper({ avatar, shopName, username, date, text }: PostUpperProps) {
   const SubHeaderProps = { shopName, username, date };
   const avatarEl = (
-    <Avatar src={avatar} alt={"user avatar"} aria-label="user-avatar" />
+    <Avatar src={avatar} alt={"user avatar"} className="avatar-img" />
   );
   const cardContent = (
-    <CardContent>
+    <CardContent className="post-text">
       <Typography fontSize={"0.9rem"} fontWeight={400}>
         {text}
       </Typography>
@@ -32,9 +32,10 @@ function PostUpper({ avatar, shopName, username, date, text }: PostUpperProps) {
       direction={"column"}
       justifyContent="center"
       spacing={1}
-      paddingLeft={2}
+      className="post-upper"
     >
       <CardHeader
+        className="post-subHeaders"
         avatar={avatarEl}
         subheader={<SubHeaders {...SubHeaderProps} />}
       />
