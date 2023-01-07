@@ -39,11 +39,12 @@ function Post({
   likes,
   comments,
   didLike,
-}: PostAPI) {
+  index,
+}: PostAPI & { index?: number }) {
   const PostUpperProps = { username, avatar, date, shopName, text };
   const PostFooterProps = { likes, comments, didLike };
   return (
-    <Card sx={postSX} key={id}>
+    <Card data-testid={`${index}-element`} sx={postSX} key={id}>
       <PostUpper {...PostUpperProps} />
       <PostMain images={images} />
       <PostFooter {...PostFooterProps} />
