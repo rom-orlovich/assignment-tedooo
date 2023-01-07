@@ -10,7 +10,7 @@ const container = document.getElementById("root")!;
 const root = createRoot(container);
 const theme = createTheme({
   typography: { fontFamily: "DM Sans" },
-  spacing: 3,
+  spacing: 8,
 });
 root.render(
   <React.StrictMode>

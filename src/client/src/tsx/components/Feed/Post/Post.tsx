@@ -4,6 +4,7 @@ import { Card, SxProps } from "@mui/material";
 import { PostAPI } from "../../../../redux/api/postsAPI";
 import PostMain from "./PostMain/PostMain";
 import PostUpper from "./PostUpper/PostUpper";
+import PostFooter from "./PostFooter/PostFooter";
 
 const postSX: SxProps = {
   "&": {
@@ -13,7 +14,7 @@ const postSX: SxProps = {
     ".MuiCardHeader-root": {
       padding: "0.5rem 0",
       " .MuiCardHeader-avatar": {
-        marginRight: "0.5rem",
+        marginRight: 1,
       },
     },
     " .MuiCardContent-root": {
@@ -32,6 +33,7 @@ function Post({ id, username, avatar, date, shopName, text, images }: PostAPI) {
     <Card sx={postSX} key={id}>
       <PostUpper {...PostUpperProps} />
       <PostMain images={images} />
+      <PostFooter />
     </Card>
   );
 }
