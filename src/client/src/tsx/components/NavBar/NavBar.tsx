@@ -115,7 +115,7 @@ function NavBar() {
         "title"
       )
     : [];
-  const their;
+
   return (
     <AppBar sx={AppBarSX} position="fixed">
       <Toolbar component={Stack} variant="regular" direction={"row"}>
@@ -129,6 +129,13 @@ function NavBar() {
             <TedoooIcon />
           </IconButton>
           <Autocomplete
+            filterOptions={(value, state) =>
+              value.filter((post) =>
+                post.title
+                  .toLowerCase()
+                  .startsWith(state.inputValue.toLowerCase())
+              )
+            }
             onInputChange={(e, value) => {
               dispatch(setFilter(value));
             }}
