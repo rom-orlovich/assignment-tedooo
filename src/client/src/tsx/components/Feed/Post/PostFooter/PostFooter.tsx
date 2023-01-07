@@ -10,30 +10,44 @@ import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-import { green } from "@mui/material/colors";
-import { flexDir } from "../../../../MUI/mui.utilites";
-/* Vector */
 
-function PostFooter() {
-  const buttonContainerSX: SxProps = {
+import { grey } from "@mui/material/colors";
+import { flexDir } from "../../../../MUI/mui.utilities";
+import { PickKey } from "../../../../types.utilities";
+import { PostAPI } from "../../../../../redux/api/postsAPI";
+import { theme } from "../../../../..";
+
+export type PostFooterProps = PickKey<
+  PostAPI,
+  "likes" | "comments" | "didLike"
+>;
+
+function PostFooter({ comments, didLike, likes }: PostFooterProps) {
+  const buttonContainerSX: SxProps<typeof theme> = (theme) => ({
     "&": {
       ".MuiButtonBase-root": {
         flex: "50%",
         fontSize: "0.8rem",
         gap: 0.5,
         color: "grey",
+        "&.like-button": {
+          color: didLike ? theme.palette.primary.main : "grey",
+        },
         ".MuiSvgIcon-root": {
           fontSize: "0.8rem",
         },
       },
     },
-  };
+  });
   return (
     <>
       <Stack direction={"row"} justifyContent="space-between" padding={1}>
         <Typography
           component={"span"}
-          sx={{ ...flexDir({ AI: "center", JC: "center", gap: "0.2rem" }) }}
+          sx={{
+            ...flexDir({ AI: "center", JC: "center", gap: "0.2rem" }),
+            padding: "0 0.5rem",
+          }}
         >
           <Box
             component={"i"}
@@ -53,12 +67,14 @@ function PostFooter() {
               }}
             />
           </Box>
-          500 Likes
+          {likes} Likes
         </Typography>
-        <Typography component={"span"}> 6 Comments </Typography>
+        <Typography component={"span"} color={grey["600"]}>
+          {comments} Comments
+        </Typography>
       </Stack>
       <Stack direction={"row"} sx={buttonContainerSX}>
-        <Button>
+        <Button sx={{ color: "blue" }} className={"like-button"}>
           <ThumbUpOffAltIcon /> Like
         </Button>
 

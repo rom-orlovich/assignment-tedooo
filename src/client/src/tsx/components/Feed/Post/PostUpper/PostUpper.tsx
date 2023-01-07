@@ -5,15 +5,14 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import { PostAPI } from "../../../../../redux/api/postsAPI";
+import { PickKey } from "../../../../types.utilities";
 import SubHeaders from "./SubHeaders";
 
-export interface PostUpperProps {
-  avatar: string;
-  shopName?: string;
-  username: string;
-  date: string;
-  text: string;
-}
+export type PostUpperProps = PickKey<
+  PostAPI,
+  "avatar" | "username" | "date" | "text" | "shopName"
+>;
 
 function PostUpper({ avatar, shopName, username, date, text }: PostUpperProps) {
   const SubHeaderProps = { shopName, username, date };

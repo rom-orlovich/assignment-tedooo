@@ -8,7 +8,7 @@ import { store } from "./redux/store";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
-const theme = createTheme({
+export const theme = createTheme({
   typography: { fontFamily: "DM Sans" },
   spacing: 8,
 });
