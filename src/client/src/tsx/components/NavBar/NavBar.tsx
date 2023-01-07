@@ -36,7 +36,6 @@ function NavBar() {
             "linear-gradient(131.96deg, #96DCD0 -8.63%, #6CCEBD -5.56%, #2DB8A1 35.83%, #28A38F 89.48%, #208171 133.94%)",
           borderRadius: "4px",
         },
-
         ".search-input": {
           position: "relative",
           svg: {
