@@ -14,20 +14,28 @@ interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
 
 export const renderUI = (
   UI: JSX.Element,
-  initialEntries = ["/"],
+  initialRoutes = ["/"],
   { store = createAppStore(), ...renderOptions }: ExtendedRenderOptions = {}
 ) => {
   const testRouter = createMemoryRouter([appRouter], {
-    initialEntries,
+    initialEntries: initialRoutes,
   });
 
-  const wrapper = () => (
-    <React.StrictMode>
-      <Provider store={store}>
-        <RouterProvider router={testRouter} />
-      </Provider>
-    </React.StrictMode>
-  );
+  const wrapper = () => {
+    const checkInitialRoutesIsExist =
+      initialRoutes.length === 1 && initialRoutes[0] === "";
+
+    const checkLoadAppWithRouteOrOnlyUI = checkInitialRoutesIsExist ? (
+      UI
+    ) : (
+      <RouterProvider router={testRouter} />
+    );
+    return (
+      <React.StrictMode>
+        <Provider store={store}>{checkLoadAppWithRouteOrOnlyUI}</Provider>
+      </React.StrictMode>
+    );
+  };
 
   return {
     store,
