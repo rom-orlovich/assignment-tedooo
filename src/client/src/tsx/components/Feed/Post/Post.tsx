@@ -1,4 +1,3 @@
-import React, { forwardRef, useEffect, useRef } from "react";
 import { Card, SxProps } from "@mui/material";
 
 import { useInView } from "react-intersection-observer";
@@ -29,36 +28,6 @@ const postSX: SxProps = {
     },
   },
 };
-
-// const Post = forwardRef<HTMLDivElement | null, PostAPI & { index?: number }>(
-//   (
-//     {
-//       id,
-//       username,
-//       avatar,
-//       date,
-//       shopName,
-//       text,
-//       images,
-//       likes,
-//       comments,
-//       didLike,
-//       index,
-//     }: PostAPI & { index?: number },
-//     ref
-//   ) => {
-//     const PostUpperProps = { username, avatar, date, shopName, text };
-//     const PostFooterProps = { likes, comments, didLike };
-
-//     return (
-//       <Card ref={ref} data-testid={`${index}-element`} sx={postSX} key={id}>
-//         <PostUpper {...PostUpperProps} />
-//         <PostMain images={images} />
-//         <PostFooter {...PostFooterProps} />
-//       </Card>
-//     );
-//   }
-// );
 
 function Post({
   id,
