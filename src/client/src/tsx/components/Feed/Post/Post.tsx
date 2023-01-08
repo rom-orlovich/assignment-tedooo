@@ -1,6 +1,8 @@
-import React from "react";
+import React, { forwardRef, useEffect, useRef } from "react";
 import { Card, SxProps } from "@mui/material";
 
+import { useInView } from "react-intersection-observer";
+import { useSearchParams } from "react-router-dom";
 import { PostAPI } from "../../../../redux/api/postsAPI";
 import PostMain from "./PostMain/PostMain";
 import PostUpper from "./PostUpper/PostUpper";
@@ -28,6 +30,36 @@ const postSX: SxProps = {
   },
 };
 
+// const Post = forwardRef<HTMLDivElement | null, PostAPI & { index?: number }>(
+//   (
+//     {
+//       id,
+//       username,
+//       avatar,
+//       date,
+//       shopName,
+//       text,
+//       images,
+//       likes,
+//       comments,
+//       didLike,
+//       index,
+//     }: PostAPI & { index?: number },
+//     ref
+//   ) => {
+//     const PostUpperProps = { username, avatar, date, shopName, text };
+//     const PostFooterProps = { likes, comments, didLike };
+
+//     return (
+//       <Card ref={ref} data-testid={`${index}-element`} sx={postSX} key={id}>
+//         <PostUpper {...PostUpperProps} />
+//         <PostMain images={images} />
+//         <PostFooter {...PostFooterProps} />
+//       </Card>
+//     );
+//   }
+// );
+
 function Post({
   id,
   username,
@@ -40,11 +72,24 @@ function Post({
   comments,
   didLike,
   index,
-}: PostAPI & { index?: number }) {
+  el,
+  userId,
+}: PostAPI & { index?: number } & { el: HTMLElement | null }) {
   const PostUpperProps = { username, avatar, date, shopName, text };
   const PostFooterProps = { likes, comments, didLike };
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const { ref: cardRef } = useInView({
+    root: el,
+    threshold: 0.8,
+
+    onChange: (inView) => {
+      if (inView) setSearchParams({ userId, itemId: id });
+    },
+  });
+
   return (
-    <Card data-testid={`${index}-element`} sx={postSX} key={id}>
+    <Card ref={cardRef} data-testid={`${index}-element`} sx={postSX} key={id}>
       <PostUpper {...PostUpperProps} />
       <PostMain images={images} />
       <PostFooter {...PostFooterProps} />

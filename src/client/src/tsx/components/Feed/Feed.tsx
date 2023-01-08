@@ -1,6 +1,7 @@
-import { Box, SxProps } from "@mui/material";
-import React, { useState } from "react";
+import { Box, SxProps, Typography } from "@mui/material";
+import React, { forwardRef, useRef, useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
+import { useInView } from "react-intersection-observer";
 import { useDispatch } from "react-redux";
 import { postsAPI } from "../../../redux/api/postsAPI";
 import { useAppSelector } from "../../../redux/hooks";
@@ -15,6 +16,7 @@ export const titleFilterMatch = (title: string, searchQuery: string) =>
 
 const feedSX: SxProps = {
   "&": {
+    height: "100%",
     overflow: "auto",
     width: "75%",
     margin: "0 auto",
@@ -28,6 +30,7 @@ function Feed() {
   const { isLoading, isFetching, data } = postsAPI.useGetPostsQuery({});
   const dispatch = useDispatch();
   const { searchQuery, page } = useAppSelector(getFeedFilters);
+  const feedRef = useRef<HTMLElement | null>(null);
   if (isLoading || isFetching) return <>Loading...</>;
 
   const postsList = data?.data
@@ -37,11 +40,22 @@ function Feed() {
         : true
     )
     .slice(0, 6 * (page + 1))
-    ?.map((post, index) => <Post key={post.id} {...post} index={index} />);
+    ?.map((post, index) => (
+      <Post el={feedRef.current} key={post.id} {...post} index={index} />
+    ));
+
+  const content = postsList?.length ? (
+    postsList
+  ) : (
+    <Typography sx={{ margin: "25% auto", fontSize: "2.5rem" }}>
+      {`No posts with title of "${searchQuery}" are found!`}
+    </Typography>
+  );
 
   const handlePostsLoader = () => {
     dispatch(setPageQuery(page + 1));
   };
+
   return (
     <InfiniteScroll
       threshold={100}
@@ -49,7 +63,9 @@ function Feed() {
       hasMore={page * 6 < (data?.data?.length || 0)}
       loadMore={handlePostsLoader}
     >
-      <Box sx={feedSX}>{postsList}</Box>
+      <Box ref={feedRef} sx={feedSX}>
+        {content}
+      </Box>
     </InfiniteScroll>
   );
 }
