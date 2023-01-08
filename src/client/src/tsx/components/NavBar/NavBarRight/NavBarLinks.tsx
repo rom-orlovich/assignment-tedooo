@@ -1,4 +1,10 @@
-import { ListItem, ListItemIcon, Stack, useMediaQuery } from "@mui/material";
+import {
+  Avatar,
+  ListItem,
+  ListItemIcon,
+  Stack,
+  useMediaQuery,
+} from "@mui/material";
 
 import { ReactNode } from "react";
 import { NavLink } from "react-router-dom";
@@ -8,8 +14,9 @@ import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutline
 
 import { APP_ROUTES } from "../../../routes/appRoutes";
 
-import SideNavBar from "./SideNavBar";
+import SideBar from "./SideBar/SideBar";
 import { theme } from "../../../MUI/mui.utilities";
+import UserAvatar from "./UserAvatar";
 
 export interface Link {
   to: string;
@@ -49,7 +56,14 @@ function NavBarLinks() {
 
   return (
     <Stack component={"ul"} className="navbar-right" direction="row">
-      {match ? <SideNavBar>{ListLinks}</SideNavBar> : ListLinks}
+      {match ? (
+        <SideBar>{ListLinks}</SideBar>
+      ) : (
+        <>
+          {ListLinks}
+          <UserAvatar />
+        </>
+      )}
     </Stack>
   );
 }

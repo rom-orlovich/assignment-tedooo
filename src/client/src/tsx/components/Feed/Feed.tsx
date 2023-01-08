@@ -28,7 +28,7 @@ function Feed() {
   const { isLoading, isFetching, data } = postsAPI.useGetPostsQuery({});
   const dispatch = useDispatch();
   const { searchQuery, page } = useAppSelector(getFeedFilters);
-  if (isLoading || isFetching) return <>loading</>;
+  if (isLoading || isFetching) return <>Loading...</>;
 
   const postsList = data?.data
     .filter((post) =>
@@ -38,6 +38,7 @@ function Feed() {
     )
     .slice(0, 6 * (page + 1))
     ?.map((post, index) => <Post key={post.id} {...post} index={index} />);
+
   const handlePostsLoader = () => {
     dispatch(setPageQuery(page + 1));
   };
