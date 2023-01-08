@@ -13,8 +13,8 @@ const postSX: SxProps = {
       "*": {
         padding: 0,
       },
-      p: "0.5rem 0",
-      pl: 2,
+      padding: "0.5rem 0",
+      paddingLeft: 2,
 
       ".MuiCardHeader-avatar": {
         marginRight: 1,
@@ -51,9 +51,19 @@ function Post({
   const { ref: cardRef } = useInView({
     root: el,
     threshold: 0.8,
-
     onChange: (inView) => {
-      if (inView) setSearchParams({ userId, itemId: id });
+      // If the post hasn't watched yet by the user, the url's queries params change to
+      // ?userId={userId}&itemId={id}.
+      // The data if the user has watched the post is saved in the local storage
+      // and the next time the user will enter the page again, the url's queries will be empty
+      const viewItemLocalStorage = localStorage.getItem(id);
+      if (inView) {
+        if (viewItemLocalStorage) setSearchParams({});
+        else {
+          localStorage.setItem(id, JSON.stringify(true));
+          setSearchParams({ userId, itemId: id });
+        }
+      }
     },
   });
 
