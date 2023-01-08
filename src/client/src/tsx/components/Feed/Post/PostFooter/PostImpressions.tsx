@@ -22,7 +22,11 @@ function PostImpressions({
         </Box>
         {likes} Likes
       </Typography>
-      <Typography component={"span"} color={grey["600"]}>
+      <Typography
+        component={"span"}
+        color={grey["600"]}
+        className="post-comments"
+      >
         {comments} Comments
       </Typography>
     </Stack>
