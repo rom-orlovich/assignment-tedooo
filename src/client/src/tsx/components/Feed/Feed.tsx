@@ -6,10 +6,8 @@ import { useAppSelector } from "../../../redux/hooks";
 import { getFeedFilters } from "../../../redux/slices/feedFiltersSlice";
 import Post from "./Post/Post";
 
-export const postFilterMatch = (post: PostAPI, searchQuery: string) =>
-  (post.shopName || post.username)
-    .toLowerCase()
-    ?.startsWith(searchQuery.toLowerCase());
+export const titleFilterMatch = (title: string, searchQuery: string) =>
+  title.toLowerCase()?.startsWith(searchQuery.toLowerCase());
 
 const feedSX: SxProps = {
   "&": {
@@ -32,7 +30,11 @@ function Feed() {
   };
 
   const postsList = data?.data
-    .filter((post) => (searchQuery ? postFilterMatch(post, searchQuery) : true))
+    .filter((post) =>
+      searchQuery
+        ? titleFilterMatch(post.shopName || post.username, searchQuery)
+        : true
+    )
     .slice(0, 6 * (page + 1))
     ?.map((post, index) => <Post key={post.id} {...post} index={index} />);
 

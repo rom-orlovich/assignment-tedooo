@@ -1,9 +1,6 @@
 import App from "../App";
+import { APP_ROUTES } from "./appRoutes";
 
-export enum APP_ROUTES {
-  MESSAGES_ROUTE = "messages",
-  NOTIFICATION_ROUTE = "notifications",
-}
 export const appRouter = {
   path: "/",
   element: <App />,

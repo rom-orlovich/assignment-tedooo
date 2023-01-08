@@ -1,9 +1,5 @@
 import { Autocomplete } from "@mui/material";
 
-import { useAppDispatch } from "../../../../redux/hooks";
-import { setFilter } from "../../../../redux/slices/feedFiltersSlice";
-import { postsAPI } from "../../../../redux/api/postsAPI";
-
 import {
   handleFilterOptions,
   handleGetOptionsLabel,
@@ -12,7 +8,10 @@ import {
   handleRenderOptions,
   OnInputChangeFun,
 } from "./handlers";
-import { uniqueObjArr } from "../../../../helpers/functions.utilities";
+import { uniqueObjArr } from "../../../../../helpers/functions.utilities";
+import { useAppDispatch } from "../../../../../redux/hooks";
+import { postsAPI } from "../../../../../redux/api/postsAPI";
+import { setFilter } from "../../../../../redux/slices/feedFiltersSlice";
 
 function SearchInput() {
   const dispatch = useAppDispatch();

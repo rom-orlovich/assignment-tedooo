@@ -1,32 +1,11 @@
-import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Autocomplete,
-  Stack,
-  SxProps,
-  List,
-  ListItem,
-  ListItemIcon,
-} from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+import { AppBar, Toolbar, Stack, SxProps } from "@mui/material";
 
-import { NavLink } from "react-router-dom";
+import NavBarLinks from "./NavBarRight/NavBarLinks";
 
-import { ReactNode, useState } from "react";
-import TedoooIcon from "./TedoooIcon";
-import { APP_ROUTES } from "../../routes/appRouter";
-import { useDebounceHook } from "../../hooks/useDebounceHook";
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import {
-  getFeedFilters,
-  setFilter,
-} from "../../../redux/slices/feedFiltersSlice";
-import { postsAPI } from "../../../redux/api/postsAPI";
-import { uniqueObjArr } from "../../../helpers/functions.utlities";
-import { navbarLinks } from "./navbarLinks";
+import NavBarLeft from "./NavBarLeft/NavBarLeft";
 
 function NavBar() {
+  const inputBorders = "1px solid grey";
   const AppBarSX: SxProps = {
     "&": {
       width: "100%",
@@ -55,10 +34,10 @@ function NavBar() {
             borderRadius: "32px",
             padding: "0.5rem",
             paddingLeft: "2rem",
-            border: "1px solid grey",
+            border: inputBorders,
             ":focus": {
-              outline: "1px solid grey",
-              border: "1px solid grey",
+              outline: inputBorders,
+              border: inputBorders,
             },
           },
         },
@@ -83,85 +62,11 @@ function NavBar() {
     },
   };
 
-  const { searchQuery } = useAppSelector(getFeedFilters);
-  // const value = useDebounceHook(searchQuery, 500);
-  // const { isLoading, isFetching, data } = postsAPI.useGetPostsQuery({});
-  // const dispatch = useAppDispatch();
-  // const options = data?.data
-  //   ? uniqueObjArr(
-  //       data?.data.map((post) => ({
-  //         id: post.id,
-  //         title: post.shopName || post.username,
-  //       })),
-  //       "title"
-  //     )
-  //   : [];
-
   return (
     <AppBar sx={AppBarSX} position="fixed">
       <Toolbar component={Stack} variant="regular" direction={"row"}>
-        <Stack direction={"row"} alignItems="center" className="navbar-left">
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <TedoooIcon />
-          </IconButton>
-          {/* <Autocomplete
-            filterOptions={(value, state) =>
-              value.filter((post) =>
-                post.title
-                  .toLowerCase()
-                  .startsWith(state.inputValue.toLowerCase())
-              )
-            }
-            onInputChange={(e, value) => {
-              dispatch(setFilter(value));
-            }}
-            id="free-solo-demo"
-            isOptionEqualToValue={(option, value) => option.id === value.id}
-            getOptionLabel={(option) =>
-              typeof option === "object" ? option.title : String(option)
-            }
-            freeSolo
-            options={options}
-            renderOption={(props, option) => (
-              <li {...props} key={option.id}>
-                {option.title}
-              </li>
-            )}
-            className="search-input"
-            renderInput={(params) => (
-              <div ref={params.InputProps.ref}>
-                <SearchIcon />
-
-                <input
-                  type="text"
-                  {...params.inputProps}
-                  placeholder="Search"
-                />
-              </div>
-            )}
-          /> */}
-        </Stack>
-
-        {/* <Stack component={"ul"} className="navbar-right" direction="row">
-          {navbarLinks.map(({ to, text, icon }) => (
-            <ListItem key={to}>
-              {icon && (
-                <ListItemIcon sx={{ minWidth: "2rem" }}>{icon}</ListItemIcon>
-              )}
-              <NavLink
-                className={({ isActive }) => (isActive ? "active" : "unactive")}
-                to={to}
-              >
-                {text}
-              </NavLink>
-            </ListItem>
-          ))}
-        </Stack> */}
+        <NavBarLeft />
+        <NavBarLinks />
       </Toolbar>
     </AppBar>
   );

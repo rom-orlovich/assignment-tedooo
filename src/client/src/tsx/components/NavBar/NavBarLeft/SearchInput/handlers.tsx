@@ -1,10 +1,12 @@
+/* eslint-disable no-unused-vars */
 import {
   AutocompleteRenderInputParams,
   AutocompleteRenderOptionState,
   FilterOptionsState,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { titleFilterMatch } from "../../Feed/Feed";
+import { HTMLAttributes, ReactNode, SyntheticEvent } from "react";
+import { titleFilterMatch } from "../../../Feed/Feed";
 
 interface AutoCompleteOptions {
   id: string;
@@ -13,19 +15,14 @@ interface AutoCompleteOptions {
 
 type FilterOptionsFun<T> = (options: T[], state: FilterOptionsState<T>) => T[];
 type OptionEqualValueFun<T> = (option: T, value: T) => boolean;
-export type OnInputChangeFun = (
-  event: React.SyntheticEvent,
-  value: string
-) => void;
+export type OnInputChangeFun = (event: SyntheticEvent, value: string) => void;
 type RenderOptionsFun<T> = (
-  props: React.HTMLAttributes<HTMLLIElement>,
+  props: HTMLAttributes<HTMLLIElement>,
   option: T,
   state: AutocompleteRenderOptionState
-) => React.ReactNode;
+) => ReactNode;
 
-type RenderInputFun = (
-  params: AutocompleteRenderInputParams
-) => React.ReactNode;
+type RenderInputFun = (params: AutocompleteRenderInputParams) => ReactNode;
 
 export const handleFilterOptions: FilterOptionsFun<AutoCompleteOptions> = (
   value,
