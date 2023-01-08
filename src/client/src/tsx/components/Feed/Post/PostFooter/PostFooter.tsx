@@ -44,7 +44,7 @@ function PostFooter({ didLike, ...postFooterProps }: PostFooterProps) {
       },
       ".footer-divider": { width: "93%", margin: "0 auto" },
       ".post-buttons-container": {
-        padding: "0.5rem 0",
+        padding: { sm: "0.2rem 0", lg: "0.5rem 0" },
         button: {
           flex: "50%",
           fontSize: "0.8rem",

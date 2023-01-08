@@ -7,6 +7,7 @@ import { flexDir } from "../../../MUI/mui.utilities";
 
 const sideNavBarSX: SxProps = {
   "&": {
+    alignItems: "flex-start",
     li: { justifyContent: "space-between", padding: "0.5rem" },
     a: {
       padding: "0 0.5rem",
@@ -56,12 +57,10 @@ function SideNavBar({ children }: PropsWithChildren) {
         onClick={handleCloseSideBar}
         onClose={handleCloseSideBar}
       >
-        <Box className="links-container">
-          <IconButton onClick={handleCloseSideBar} sx={{ mb: 2 }}>
-            <CloseIcon />
-          </IconButton>
-          {children}
-        </Box>
+        <IconButton onClick={handleCloseSideBar} sx={{ mb: 2, ml: 0.5 }}>
+          <CloseIcon />
+        </IconButton>
+        <Box className="links-container">{children}</Box>
       </Drawer>
     </>
   );
