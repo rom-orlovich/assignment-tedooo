@@ -11,7 +11,7 @@ import {
 import { uniqueObjArr } from "../../../../../helpers/functions.utilities";
 import { useAppDispatch } from "../../../../../redux/hooks";
 import { postsAPI } from "../../../../../redux/api/postsAPI";
-import { setFilter } from "../../../../../redux/slices/feedFiltersSlice";
+import { setSearchQuery } from "../../../../../redux/slices/feedFiltersSlice";
 
 function SearchInput() {
   const dispatch = useAppDispatch();
@@ -27,7 +27,7 @@ function SearchInput() {
     : [];
 
   const handleOnChangeInput: OnInputChangeFun = (e, value) => {
-    dispatch(setFilter(value));
+    dispatch(setSearchQuery(value));
   };
 
   return (

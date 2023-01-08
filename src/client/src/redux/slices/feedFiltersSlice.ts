@@ -2,14 +2,18 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
 export const feedFiltersSlice = createSlice({
-  initialState: { searchQuery: "" },
+  initialState: { searchQuery: "", page: 0 },
   name: "feedFilterSlice",
   reducers: {
-    setFilter: (state, action: PayloadAction<string>) => {
+    setSearchQuery: (state, action: PayloadAction<string>) => {
       state.searchQuery = action.payload;
+      state.page = 0;
+    },
+    setPageQuery: (state, action: PayloadAction<number>) => {
+      state.page = action.payload;
     },
   },
 });
 
-export const { setFilter } = feedFiltersSlice.actions;
+export const { setSearchQuery, setPageQuery } = feedFiltersSlice.actions;
 export const getFeedFilters = (state: RootState) => state.feedFiltersSlice;
