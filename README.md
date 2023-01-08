@@ -1,8 +1,8 @@
 # Tedooo Assignment App:
 
 ## About my project:
-A web application that display the Tedooo's feed page.
-This application was part of home assignment for Front-End postition in Tedooo.
+A web application that displays Tedooo's feed page. \
+This application was part of a home assignment for the Front-End position at Tedooo.
 
 ## Technologies:
 
@@ -19,10 +19,8 @@ This application was part of home assignment for Front-End postition in Tedooo.
   - [Material UI](https://www.npmjs.com/package/@mui/material) - for UI components
   - [date-ns](https://date-fns.org/)- For dates manipulation.
   - [react-infinite-scroller](https://github.com/danbovey/react-infinite-scroller) - For feed infinte scrolling.
-  - [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer) - For tracking over the posts that the user hasn't watched yet. 
+  - [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer) - For tracking the posts the user hasn't watched yet
  
-
-
 ## Installation
 
 1. **Clone the repo**
@@ -41,13 +39,15 @@ This application was part of home assignment for Front-End postition in Tedooo.
 4. **Go to http://localhost:3000 and have fun**!
 
 ## Main Features:
-1. **Fetching Posts From Tedooo's API** - Fetching and displaying posts from Tedooo's api.
-2. **Infinte Scrolling** - Scrolling down until all the posts will display. Each scroll event new 6 posts will be display. 
-3. **Autocomplete Search Input** - Suggests a list of post's title options from the Tedooo's API. \
-The user can search post by title and display the post it on the feed.
+1. **Fetching Posts From Tedooo's API** - Fetching and displaying posts from Tedooo's API.
+2. **Infinite Scrolling** - Scroll down until there are no more posts to display. For each scroll event, six new posts will show. 
+3. **Autocomplete Search Input** - Suggesting a list of post's title options from Tedooo's API. \
+The user can search posts by title and display them on the feed.
+4. **Posts Memorization** - Change the URL's query params if the user has already watched the post and save the condition in the local storage.  \
+When the user watches the post again, the URL won't change.  
+
   
  
 ## Images: 
 ### Trainer's Profile
 <img alt="trainer profile" src="./readme-images/trainer_profile.png" width="600" hight="600">
-
