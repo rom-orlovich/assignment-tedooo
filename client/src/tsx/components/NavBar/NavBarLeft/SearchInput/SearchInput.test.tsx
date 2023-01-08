@@ -6,7 +6,7 @@ describe("Tests search autocomplete and the results feed", () => {
   let screen: ReturnType<typeof renderUI>;
 
   beforeEach(() => {
-    screen = renderUI(<App />);
+    screen = renderUI(<App />, ["/"]);
   });
   const fireInputChange = (inputValue: string, container = screen) => {
     const searchInput = container.getAllByPlaceholderText(/Search/i);

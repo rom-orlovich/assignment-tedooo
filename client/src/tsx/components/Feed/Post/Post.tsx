@@ -68,7 +68,12 @@ function Post({
   });
 
   return (
-    <Card ref={cardRef} data-testid={`${index}-element`} sx={postSX} key={id}>
+    <Card
+      // ref={cardRef}
+      data-testid={`${index}-element`}
+      sx={postSX}
+      key={id}
+    >
       <PostUpper {...PostUpperProps} />
       <PostMain images={images} />
       <PostFooter {...PostFooterProps} />
