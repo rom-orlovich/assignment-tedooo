@@ -19,11 +19,10 @@ console.log("Start building the app...");
 execSync("npm run build");
 console.log("Copy the client build folder to the deploy folder.");
 const clientBuildPath = path.resolve(".", "src", "client", "build");
-copySync(clientBuildPath, path.resolve(cwd, "server", "client"));
-rmSync(clientBuildPath, { recursive: true, force: true });
+// rmSync(clientBuildPath, { recursive: true, force: true });
 console.log("Write new package.json");
-const packageJsonPath = path.resolve(cwd, "package.json");
-writeFileSync(packageJsonPath, JSON.stringify(packageJson));
+// const packageJsonPath = path.resolve(cwd, "package.json");
+// writeFileSync(packageJsonPath, JSON.stringify(packageJson));
 console.log("Check git exist");
 
 
