@@ -41,7 +41,7 @@ This application was part of a home assignment for the Front-End position at Ted
 ## Main Features:
 1. **Fetching Posts From Tedooo's API** - Fetching and displaying posts from Tedooo's API.
 2. **Infinite Scrolling** - Scroll down until there are no more posts to display. For each scroll event, six new posts will show. 
-3. **Autocomplete Search Input** - Suggesting a list of post's title options from Tedooo's API. \
+3. **Autocomplete Search Input** - Suggesting a list of post's title names from Tedooo's API. \
 The user can search posts by title and display them on the feed.
 4. **Posts Memorization** - Change the URL's query params if the user has already watched the post and save the condition in the local storage.  \
 When the user watches the post again, the URL won't change.  
