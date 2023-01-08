@@ -3,10 +3,11 @@ import { AppBar, Toolbar, Stack, SxProps } from "@mui/material";
 import NavBarLinks from "./NavBarRight/NavBarLinks";
 
 import NavBarLeft from "./NavBarLeft/NavBarLeft";
+import { theme } from "../../..";
 
 function NavBar() {
   const inputBorders = "1px solid grey";
-  const AppBarSX: SxProps = {
+  const AppBarSX: SxProps<typeof theme> = (theme) => ({
     "&": {
       width: "100%",
       backgroundColor: "white",
@@ -43,10 +44,12 @@ function NavBar() {
         },
       },
       ".navbar-right": {
+        ml: "auto",
+
         li: {
           padding: "0.5rem",
         },
-        ml: "auto",
+
         a: {
           padding: "0 0.5rem",
           textDecoration: "none",
@@ -60,7 +63,41 @@ function NavBar() {
         },
       },
     },
-  };
+
+    [theme.breakpoints.down("sm")]: {
+      ".navbar-left": {
+        button: {
+          mr: 1,
+        },
+        ".search-input": {
+          position: "relative",
+
+          input: {
+            width: "8rem",
+          },
+        },
+      },
+      ".navbar-right": {
+        ml: "auto",
+
+        li: {
+          padding: "0.5rem",
+        },
+
+        a: {
+          padding: "0 0.5rem",
+          textDecoration: "none",
+        },
+        "li:has(.active)": {
+          background: "",
+          "*": {
+            color: "#2DB8A1",
+          },
+          borderBottom: "2px solid #2DB8A1",
+        },
+      },
+    },
+  });
 
   return (
     <AppBar sx={AppBarSX} position="fixed">

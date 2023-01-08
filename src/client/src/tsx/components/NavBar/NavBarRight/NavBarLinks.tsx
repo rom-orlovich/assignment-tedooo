@@ -1,4 +1,4 @@
-import { ListItem, ListItemIcon, Stack } from "@mui/material";
+import { IconButton, ListItem, ListItemIcon, Stack } from "@mui/material";
 
 import { ReactNode } from "react";
 import { NavLink } from "react-router-dom";
@@ -30,6 +30,22 @@ export const navbarLinks: Link[] = [
 function NavBarLinks() {
   return (
     <Stack component={"ul"} className="navbar-right" direction="row">
+      {/* <IconButton
+        edge="start"
+        color="inherit"
+        aria-label="open drawer"
+        onClick={toggleDrawer(true)}
+        sx={{
+          mr: 2,
+          display: {
+            xs: "block",
+            sm: "none",
+          },
+        }}
+      >
+        <MenuIcon />
+      </IconButton> */}
+
       {navbarLinks.map(({ to, text, icon }) => (
         <ListItem key={to}>
           {icon && (
