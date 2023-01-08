@@ -62,12 +62,14 @@ function SideBar({ children }: PropsWithChildren) {
         onClick={handleCloseSideBar}
         onClose={handleCloseSideBar}
       >
-        <IconButton
-          onClick={handleCloseSideBar}
-          sx={{ mb: 0, ml: 0.5, justifyContent: "initial" }}
-        >
-          <CloseIcon />
-        </IconButton>
+        <Box>
+          <IconButton
+            onClick={handleCloseSideBar}
+            sx={{ ml: 0.5, justifyContent: "initial" }}
+          >
+            <CloseIcon />
+          </IconButton>
+        </Box>
         <WelcomeUser />
         <Box className="links-container">{children}</Box>
       </Drawer>

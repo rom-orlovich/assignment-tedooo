@@ -1,7 +1,5 @@
-import { fireEvent } from "@testing-library/react";
 import { renderUI } from "../../../tests/utilities";
 
-import App from "../../App";
 import Feed from "./Feed";
 
 describe("Tests the Feed component", () => {
@@ -16,8 +14,6 @@ describe("Tests the Feed component", () => {
   });
 
   test.todo(
-    "Tests that the Feed component loads the next 6 posts- todo with Cypress"
+    "Tests that the Feed component loads the next 6 posts- to do it with Cypress"
   );
 });
-
-
