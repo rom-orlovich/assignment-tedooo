@@ -12,9 +12,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 
 import { NavLink } from "react-router-dom";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
-import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
+
 import { ReactNode, useState } from "react";
 import TedoooIcon from "./TedoooIcon";
 import { APP_ROUTES } from "../../routes/appRouter";
@@ -26,6 +24,7 @@ import {
 } from "../../../redux/slices/feedFiltersSlice";
 import { postsAPI } from "../../../redux/api/postsAPI";
 import { uniqueObjArr } from "../../../helpers/functions.utlities";
+import { navbarLinks } from "./navbarLinks";
 
 function NavBar() {
   const AppBarSX: SxProps = {
@@ -83,38 +82,20 @@ function NavBar() {
       },
     },
   };
-  interface Link {
-    to: string;
-    icon?: ReactNode;
-    text: string;
-  }
 
-  const navbarLinks: Link[] = [
-    { to: "/", text: "Home", icon: <HomeOutlinedIcon /> },
-    {
-      to: APP_ROUTES.MESSAGES_ROUTE,
-      text: "Messages",
-      icon: <ChatBubbleOutlineOutlinedIcon />,
-    },
-    {
-      to: APP_ROUTES.NOTIFICATION_ROUTE,
-      text: "Notifications",
-      icon: <NotificationsNoneOutlinedIcon />,
-    },
-  ];
-  const { searchValue } = useAppSelector(getFeedFilters);
-  // const value = useDebounceHook(searchValue, 500);
-  const { isLoading, isFetching, data } = postsAPI.useGetPostsQuery({});
-  const dispatch = useAppDispatch();
-  const options = data?.data
-    ? uniqueObjArr(
-        data?.data.map((post) => ({
-          id: post.id,
-          title: post.shopName || post.username,
-        })),
-        "title"
-      )
-    : [];
+  const { searchQuery } = useAppSelector(getFeedFilters);
+  // const value = useDebounceHook(searchQuery, 500);
+  // const { isLoading, isFetching, data } = postsAPI.useGetPostsQuery({});
+  // const dispatch = useAppDispatch();
+  // const options = data?.data
+  //   ? uniqueObjArr(
+  //       data?.data.map((post) => ({
+  //         id: post.id,
+  //         title: post.shopName || post.username,
+  //       })),
+  //       "title"
+  //     )
+  //   : [];
 
   return (
     <AppBar sx={AppBarSX} position="fixed">
@@ -128,7 +109,7 @@ function NavBar() {
           >
             <TedoooIcon />
           </IconButton>
-          <Autocomplete
+          {/* <Autocomplete
             filterOptions={(value, state) =>
               value.filter((post) =>
                 post.title
@@ -163,10 +144,10 @@ function NavBar() {
                 />
               </div>
             )}
-          />
+          /> */}
         </Stack>
 
-        <Stack component={"ul"} className="navbar-right" direction="row">
+        {/* <Stack component={"ul"} className="navbar-right" direction="row">
           {navbarLinks.map(({ to, text, icon }) => (
             <ListItem key={to}>
               {icon && (
@@ -180,7 +161,7 @@ function NavBar() {
               </NavLink>
             </ListItem>
           ))}
-        </Stack>
+        </Stack> */}
       </Toolbar>
     </AppBar>
   );
