@@ -1,7 +1,13 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { Property } from "csstype/index";
 
 import { SystemStyleObject } from "@mui/system";
+import { createTheme } from "@mui/material";
 
+export const theme = createTheme({
+  typography: { fontFamily: "DM Sans" },
+  spacing: 8,
+});
 export const flexDir = ({
   flexDir,
   JC,

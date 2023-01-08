@@ -1,10 +1,10 @@
 import { Box, Divider, SxProps } from "@mui/material";
 
-import { green, grey } from "@mui/material/colors";
-import { flexDir } from "../../../../MUI/mui.utilities";
+import { grey } from "@mui/material/colors";
+import { flexDir, theme } from "../../../../MUI/mui.utilities";
 import { PickKey } from "../../../../types.utilities";
 import { PostAPI } from "../../../../../redux/api/postsAPI";
-import { theme } from "../../../../..";
+
 import PostButtonsContainer from "./PostButtonsContainer";
 import PostImpressions from "./PostImpressions";
 

@@ -1,7 +1,30 @@
 import React, { PropsWithChildren, useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Drawer, IconButton } from "@mui/material";
-import { linksStyle } from "../NavBar";
+import { Box, Drawer, IconButton, SxProps } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+
+import { flexDir } from "../../../MUI/mui.utilities";
+
+const sideNavBarSX: SxProps = {
+  "&": {
+    li: { justifyContent: "space-between", padding: "0.5rem" },
+    a: {
+      padding: "0 0.5rem",
+      textDecoration: "none",
+    },
+    "li:has(.active)": {
+      borderBottom: "2px solid #2DB8A1",
+      "*": {
+        color: "#2DB8A1",
+      },
+    },
+  },
+  marginTop: "2rem",
+  ".links-container": {
+    width: "12rem",
+    ...flexDir({ gap: "0.5rem", flexDir: "column" }),
+  },
+};
 
 function SideNavBar({ children }: PropsWithChildren) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -26,14 +49,19 @@ function SideNavBar({ children }: PropsWithChildren) {
       </IconButton>
 
       <Drawer
-        sx={{ "&": { ...linksStyle }, marginTop: "2rem" }}
+        sx={sideNavBarSX}
         className="sideNavBar"
         anchor={"right"}
         open={isOpen}
         onClick={handleCloseSideBar}
         onClose={handleCloseSideBar}
       >
-        {children}
+        <Box className="links-container">
+          <IconButton onClick={handleCloseSideBar} sx={{ mb: 2 }}>
+            <CloseIcon />
+          </IconButton>
+          {children}
+        </Box>
       </Drawer>
     </>
   );

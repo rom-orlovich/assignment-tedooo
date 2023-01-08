@@ -7,11 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { store } from "./redux/store";
 import { appRouter } from "./tsx/routes/appRouter";
-
-export const theme = createTheme({
-  typography: { fontFamily: "DM Sans" },
-  spacing: 8,
-});
+import { theme } from "./tsx/MUI/mui.utilities";
 
 const container = document.getElementById("root")!;
 

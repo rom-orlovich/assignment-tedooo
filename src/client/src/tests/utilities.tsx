@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@mui/material";
 import { PreloadedState } from "@reduxjs/toolkit";
 import { render, RenderOptions } from "@testing-library/react";
 import React from "react";
@@ -5,6 +6,7 @@ import { Provider } from "react-redux";
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
 
 import { AppStore, createAppStore, RootState } from "../redux/store";
+import { theme } from "../tsx/MUI/mui.utilities";
 import { appRouter } from "../tsx/routes/appRouter";
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
@@ -32,7 +34,9 @@ export const renderUI = (
     );
     return (
       <React.StrictMode>
-        <Provider store={store}>{checkLoadAppWithRouteOrOnlyUI}</Provider>
+        <ThemeProvider theme={theme}>
+          <Provider store={store}>{checkLoadAppWithRouteOrOnlyUI}</Provider>
+        </ThemeProvider>
       </React.StrictMode>
     );
   };

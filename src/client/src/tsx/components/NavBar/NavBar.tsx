@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Stack, SxProps } from "@mui/material";
 import NavBarLinks from "./NavBarRight/NavBarLinks";
 
 import NavBarLeft from "./NavBarLeft/NavBarLeft";
-import { theme } from "../../..";
+import { theme } from "../../MUI/mui.utilities";
 
 export const linksStyle = {
   li: {
@@ -14,11 +14,10 @@ export const linksStyle = {
     textDecoration: "none",
   },
   "li:has(.active)": {
-    background: "",
+    borderBottom: "2px solid #2DB8A1",
     "*": {
       color: "#2DB8A1",
     },
-    borderBottom: "2px solid #2DB8A1",
   },
 };
 
@@ -62,20 +61,7 @@ const AppBarSX: SxProps<typeof theme> = (theme) => {
       },
       ".navbar-right": {
         ml: "auto",
-        li: {
-          padding: "0.5rem",
-        },
-        a: {
-          padding: "0 0.5rem",
-          textDecoration: "none",
-        },
-        "li:has(.active)": {
-          background: "",
-          "*": {
-            color: "#2DB8A1",
-          },
-          borderBottom: "2px solid #2DB8A1",
-        },
+        ...linksStyle,
       },
     },
   };
