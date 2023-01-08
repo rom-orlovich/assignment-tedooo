@@ -49,5 +49,18 @@ When the user watches the post again, the URL won't change.
   
  
 ## Images: 
-### Trainer's Profile
-<img alt="trainer profile" src="./readme-images/trainer_profile.png" width="600" hight="600">
+### Home Page
+<img alt="Home page" src="./readme-images/home-page.png" width="600" hight="600">
+
+### Search Posts
+<img alt="Autocomplete suggesting" src="./readme-images/autocomplete-suggesting.png" width="600" hight="600">
+<img alt="Search results" src="./readme-images/search-results.png" width="600" hight="600">
+
+### Mobile Display
+<img alt="Mobile display" src="./readme-images/mobile.png" width="600" hight="600">
+<img alt="Mobile sideBar" src="./readme-images/mobile-sideBar.png" width="600" hight="600">
+
+### App's Tests
+<img alt="Feed test" src="./readme-images/feed-test.png" width="600" hight="600">
+<img alt="Search input tests" src="./readme-images/search-input-tests.png" width="600" hight="600">
+<img alt="Tests coverage" src="./readme-images/tests-coverage.png" width="600" hight="600">
