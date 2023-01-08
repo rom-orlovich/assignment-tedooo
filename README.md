@@ -17,7 +17,7 @@ This application was part of home assignment for Front-End postition in Tedooo.
   - [Redux RTK & Query](https://www.npmjs.com/package/@reduxjs/toolkit) - For state and data-fetching management.
   - [React Router](https://www.npmjs.com/package/react-router-dom) - For routes management.
   - [Material UI](https://www.npmjs.com/package/@mui/material) - for UI components
-  - [Date-fns](https://date-fns.org/)- For date manipulation.
+  - [date-ns](https://date-fns.org/)- For dates manipulation.
   - [react-infinite-scroller](https://github.com/danbovey/react-infinite-scroller) - For feed infinte scrolling.
   - [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer) - For tracking over the posts that the user hasn't watched yet. 
  
