@@ -61,7 +61,7 @@ This application was part of a home assignment for the Front-End position at Ted
   - Optimizing posts' images loading.
   - Implementing components' lazy loading.
 - **Cypress Tests** - Implementing End to End tests using Cypress.
-- **Improving App's Style**
+- **Improving App's Style**.
 
 ## Images:
 
