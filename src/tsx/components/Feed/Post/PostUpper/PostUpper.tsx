@@ -5,7 +5,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { PostAPI } from "../../../../../redux/api/postsAPI";
+import { PostAPI } from "../../../../redux/api/postsAPI";
 import { PickKey } from "../../../../types.utilities";
 import SubHeaders from "./SubHeaders";
 

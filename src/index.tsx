@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { store } from "./redux/store";
+import { store } from "./tsx/redux/store";
 import { appRouter } from "./tsx/routes/appRouter";
 import { theme } from "./tsx/MUI/mui.utilities";
 

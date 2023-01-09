@@ -3,7 +3,7 @@ import { Box, Divider, SxProps } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import { flexDir, theme } from "../../../../MUI/mui.utilities";
 import { PickKey } from "../../../../types.utilities";
-import { PostAPI } from "../../../../../redux/api/postsAPI";
+import { PostAPI } from "../../../../redux/api/postsAPI";
 
 import PostButtonsContainer from "./PostButtonsContainer";
 import PostImpressions from "./PostImpressions";
