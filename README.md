@@ -1,6 +1,6 @@
 # Tedooo Assignment App:
 
-Link to my app's UI overview: [App's UI Overview](https://drive.google.com/drive/u/2/folders/1A2inDLkRvefyECZVb1cWqz2CeWyF8r1N):point_left:
+Link to my app's UI overview: [App's UI Overview](https://drive.google.com/drive/u/2/folders/1A2inDLkRvefyECZVb1cWqz2CeWyF8r1N):point_left: \
 Link to my app's code overview: [App's Code Overview](https://drive.google.com/file/d/1VmHx6GDwpxAzcrzx4zlgajnFGcyS9uMx/view?usp=sharing):point_left:
 ## About my project:
 
