@@ -5,8 +5,8 @@ import React from "react";
 import { Provider } from "react-redux";
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
 
-import { AppStore, createAppStore, RootState } from "../redux/store";
 import { theme } from "../tsx/MUI/mui.utilities";
+import { AppStore, createAppStore, RootState } from "../tsx/redux/store";
 import { appRouter } from "../tsx/routes/appRouter";
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {

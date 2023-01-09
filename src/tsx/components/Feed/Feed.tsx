@@ -3,12 +3,12 @@ import React, { forwardRef, useRef, useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
 import { useInView } from "react-intersection-observer";
 import { useDispatch } from "react-redux";
-import { postsAPI } from "../../../redux/api/postsAPI";
-import { useAppSelector } from "../../../redux/hooks";
+import { postsAPI } from "../../redux/api/postsAPI";
+import { useAppSelector } from "../../redux/hooks";
 import {
   getFeedFilters,
   setPageQuery,
-} from "../../../redux/slices/feedFiltersSlice";
+} from "../../redux/slices/feedFiltersSlice";
 import Post from "./Post/Post";
 
 export const titleFilterMatch = (title: string, searchQuery: string) =>
