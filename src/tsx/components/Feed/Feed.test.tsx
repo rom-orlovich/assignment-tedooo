@@ -5,7 +5,7 @@ import Feed from "./Feed";
 describe("Tests the Feed component", () => {
   let screen: ReturnType<typeof renderUI>;
   beforeEach(() => {
-    screen = renderUI(<Feed />, ["/"]);
+    screen = renderUI(<Feed />);
   });
 
   test("Tests that the Feed component loads only the first 6 posts", async () => {

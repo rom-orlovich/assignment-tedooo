@@ -6,7 +6,7 @@ describe("Tests search autocomplete and the results feed", () => {
   let screen: ReturnType<typeof renderUI>;
 
   beforeEach(() => {
-    screen = renderUI(<App />, ["/"]);
+    screen = renderUI(<App />);
   });
   const fireInputChange = (inputValue: string, container = screen) => {
     const searchInput = container.getAllByPlaceholderText(/Search/i);
@@ -32,24 +32,19 @@ describe("Tests search autocomplete and the results feed", () => {
     expect(matchResult.titles.length).toBe(0);
   });
 
+  test("Tests that all the posts' title start with a", async () => {
+    const matchResult = await checkInputSearchIsMatchPostsTitle("a");
+    expect(matchResult.checkTitleStartWith).toBeTruthy();
+    expect(matchResult.titles.length).toBeLessThan(6);
+  });
   test("Tests after clean the search input that the results are change", async () => {
     const matchResult = await checkInputSearchIsMatchPostsTitle("n");
     const matchResult2 = await checkInputSearchIsMatchPostsTitle("");
     expect(matchResult.titles).not.toEqual(matchResult2.titles);
   });
-
-  describe("Tests search autocomplete input that the value is start with a", () => {
-    test("Tests that all the posts' title start with a", async () => {
-      const matchResult = await checkInputSearchIsMatchPostsTitle("a");
-      expect(matchResult.checkTitleStartWith).toBeTruthy();
-
-      expect(matchResult.titles.length).toBeLessThan(6);
-    });
-    test("Tests that the max num results is lower than 6", async () => {
-      const matchResult = await checkInputSearchIsMatchPostsTitle("n");
-      expect(matchResult.checkTitleStartWith).toBeTruthy();
-
-      expect(matchResult.titles.length).toBeLessThan(6);
-    });
+  test("Tests that the max num results is lower than 6", async () => {
+    const matchResult = await checkInputSearchIsMatchPostsTitle("n");
+    expect(matchResult.checkTitleStartWith).toBeTruthy();
+    expect(matchResult.titles.length).toBeLessThan(6);
   });
 });
