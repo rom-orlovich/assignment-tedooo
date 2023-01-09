@@ -2,7 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 
-import { createTheme, ThemeProvider } from "@mui/material";
+import { ThemeProvider } from "@mui/material";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { store } from "./tsx/redux/store";
