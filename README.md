@@ -18,7 +18,7 @@ This application was part of a home assignment for the Front-End position at Ted
   - [React Router](https://www.npmjs.com/package/react-router-dom) - For routes management.
   - [Material UI](https://www.npmjs.com/package/@mui/material) - for UI components
   - [date-ns](https://date-fns.org/)- For dates manipulation.
-  - [react-infinite-scroller](https://github.com/danbovey/react-infinite-scroller) - For feed infinte scrolling.
+  - [react-infinite-scroller](https://github.com/danbovey/react-infinite-scroller) - For feed infinite scrolling.
   - [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer) - For tracking the posts the user hasn't watched yet
 
 ## Installation
