@@ -1,5 +1,5 @@
 # Tedooo Assignment App:
-
+Link to my app's UI overview: [App's UI Overview](https://drive.google.com/drive/u/2/folders/1A2inDLkRvefyECZVb1cWqz2CeWyF8r1N):point_left:
 ## About my project:
 
 A static web application that displays Tedooo's feed page. \
@@ -19,7 +19,9 @@ This application was part of a home assignment for the Front-End position at Ted
   - [Material UI](https://www.npmjs.com/package/@mui/material) - for UI components
   - [date-ns](https://date-fns.org/)- For dates manipulation.
   - [react-infinite-scroller](https://github.com/danbovey/react-infinite-scroller) - For feed infinite scrolling.
-  - [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer) - For tracking the posts the user hasn't watched yet
+  - [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer) - For tracking the posts the user hasn't watched yet.
+  - [msw](https://mswjs.io/docs/) - For mocking routes' api in order to test React app.
+  - [jsdom-testing-mocks](https://www.npmjs.com/package/jsdom-testing-mocks) - For mocking broswer function in order to test React app.
 
 ## Installation
 
