@@ -49,7 +49,7 @@ This application was part of a home assignment for the Front-End position at Ted
    - Suggesting a list of post's title names from Tedooo's API.
    - The user can search posts by title and display the results on the feed.
 4. **Posts Memorization**:
-   - Change the URL's query parameters if the user has already watched the post.
+   - Change the URL's queries parameters if the user has already watched the post.
    - Save the indicator if the user watched the post in the local storage.
    - When the user will watch the post again, the URL won't change.
 
