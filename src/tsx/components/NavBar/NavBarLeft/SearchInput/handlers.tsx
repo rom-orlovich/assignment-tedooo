@@ -6,7 +6,6 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { HTMLAttributes, ReactNode, SyntheticEvent } from "react";
-import { titleFilterMatch } from "../../../Feed/Feed";
 
 interface AutoCompleteOptions {
   id: string;
@@ -23,6 +22,9 @@ type RenderOptionsFun<T> = (
 ) => ReactNode;
 
 type RenderInputFun = (params: AutocompleteRenderInputParams) => ReactNode;
+
+export const titleFilterMatch = (title: string, searchQuery: string) =>
+  title.toLowerCase()?.startsWith(searchQuery.toLowerCase());
 
 export const handleFilterOptions: FilterOptionsFun<AutoCompleteOptions> = (
   value,

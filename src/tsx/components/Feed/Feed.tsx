@@ -9,10 +9,8 @@ import {
   getFeedFilters,
   setPageQuery,
 } from "../../redux/slices/feedFiltersSlice";
+import { titleFilterMatch } from "../NavBar/NavBarLeft/SearchInput/handlers";
 import Post from "./Post/Post";
-
-export const titleFilterMatch = (title: string, searchQuery: string) =>
-  title.toLowerCase()?.startsWith(searchQuery.toLowerCase());
 
 const feedSX: SxProps = {
   "&": {
