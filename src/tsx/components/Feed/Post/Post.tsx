@@ -2,7 +2,7 @@ import { Card, SxProps } from "@mui/material";
 
 import { useInView } from "react-intersection-observer";
 import { useSearchParams } from "react-router-dom";
-import { PostAPI } from "../../../../redux/api/postsAPI";
+import { PostAPI } from "../../../redux/api/postsAPI";
 import PostMain from "./PostMain/PostMain";
 import PostUpper from "./PostUpper/PostUpper";
 import PostFooter from "./PostFooter/PostFooter";
@@ -52,10 +52,12 @@ function Post({
     root: el,
     threshold: 0.8,
     onChange: (inView) => {
-      // If the post hasn't watched yet by the user, the url's queries params change to
-      // ?userId={userId}&itemId={id}.
-      // The data if the user has watched the post is saved in the local storage
-      // and the next time the user will enter the page again, the url's queries will be empty
+      /**
+   - Change the URL's queries parameters if the user has already watched the post.
+   - Save the indicator if the user watched the post in the local storage.
+   - When the user will watch the post again, the URL won't change.
+   - Clean the local storage to recreate the above effect again.
+       */
       const viewItemLocalStorage = localStorage.getItem(id);
       if (inView) {
         if (viewItemLocalStorage) setSearchParams({});
@@ -68,12 +70,7 @@ function Post({
   });
 
   return (
-    <Card
-      // ref={cardRef}
-      data-testid={`${index}-element`}
-      sx={postSX}
-      key={id}
-    >
+    <Card data-testid={`${index}-element`} sx={postSX} key={id}>
       <PostUpper {...PostUpperProps} />
       <PostMain images={images} />
       <PostFooter {...PostFooterProps} />
