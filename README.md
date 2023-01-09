@@ -1,7 +1,7 @@
 # Tedooo Assignment App:
 
 ## About my project:
-A web application that displays Tedooo's feed page. \
+A static web application that displays Tedooo's feed page. \
 This application was part of a home assignment for the Front-End position at Tedooo.
 
 ## Technologies:
@@ -39,12 +39,28 @@ This application was part of a home assignment for the Front-End position at Ted
 4. **Go to http://localhost:3000 and have fun**!
 
 ## Main Features:
-1. **Fetching Posts From Tedooo's API** - Fetching and displaying posts from Tedooo's API.
-2. **Infinite Scrolling** - Scroll down until there are no more posts to display. For each scroll event, six new posts will show. 
-3. **Autocomplete Search Input** - Suggesting a list of post's title names from Tedooo's API. \
-The user can search posts by title and display them on the feed.
-4. **Posts Memorization** - Change the URL's query params if the user has already watched the post and save the condition in the local storage.  \
-When the user watches the post again, the URL won't change.  
+1. **Fetching Posts From Tedooo's API**- Fetching and displaying posts from Tedooo's API.
+2. **Infinite Scrolling**:
+   - Scroll down until there are no more posts to display. 
+   - For each scroll event, six new posts will show. 
+3. **Autocomplete Search Input**: 
+   - Suggesting a list of post's title names from Tedooo's API. 
+   - The user can search posts by title and display the results on the feed.
+4. **Posts Memorization**:
+    - Change the URL's query parameters if the user has already watched the post. 
+    - Save the indicator if the user watched the post in the local storage.  
+    - When the user will watch the post again, the URL won't change.  
+
+
+## What's next?:
+- **Implements CRUD Actions of Posts, Comments, Likes** - Create/Read/Update/Delete posts, comments, likes. 
+- **React App Optimizition**:
+   - Minimizing Material UI bundling size.
+   - Optimizing posts' images loading.
+   - Implementing components' lazy loading.
+- **Cypress Tests** - Implementing End to End tests using Cypress.
+  
+
 
   
  
