@@ -49,9 +49,6 @@ function Post({
   const [searchParams, setSearchParams] = useSearchParams();
 
   const { ref: cardRef } = useInView({
-    // root,
-    // trackVisibility: true,
-    // delay: 100,
     threshold: 0.8,
     onChange: (inView) => {
       /**
