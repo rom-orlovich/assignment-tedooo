@@ -1,7 +1,7 @@
 import { Box, SxProps, Typography } from "@mui/material";
-import React, { forwardRef, useRef, useState } from "react";
+
 import InfiniteScroll from "react-infinite-scroller";
-import { useInView } from "react-intersection-observer";
+
 import { useDispatch } from "react-redux";
 import { postsAPI } from "../../redux/api/postsAPI";
 import { useAppSelector } from "../../redux/hooks";
@@ -30,7 +30,7 @@ function Feed() {
   const { isLoading, isFetching, data } = postsAPI.useGetPostsQuery({});
   const dispatch = useDispatch();
   const { searchQuery, page } = useAppSelector(getFeedFilters);
-  const feedRef = useRef<HTMLElement | null>(null);
+
   if (isLoading || isFetching) return <>Loading...</>;
 
   const postsList = data?.data
@@ -40,9 +40,7 @@ function Feed() {
         : true
     )
     .slice(0, 6 * (page + 1))
-    ?.map((post, index) => (
-      <Post el={feedRef.current} key={post.id} {...post} index={index} />
-    ));
+    ?.map((post, index) => <Post key={post.id} {...post} index={index} />);
 
   const content = postsList?.length ? (
     postsList
@@ -63,9 +61,7 @@ function Feed() {
       hasMore={page * 6 < (data?.data?.length || 0)}
       loadMore={handlePostsLoader}
     >
-      <Box ref={feedRef} sx={feedSX}>
-        {content}
-      </Box>
+      <Box sx={feedSX}>{content}</Box>
     </InfiniteScroll>
   );
 }

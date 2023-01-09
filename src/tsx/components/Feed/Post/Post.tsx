@@ -41,15 +41,17 @@ function Post({
   comments,
   didLike,
   index,
-  el,
+
   userId,
-}: PostAPI & { index?: number } & { el: HTMLElement | null }) {
+}: PostAPI & { index?: number }) {
   const PostUpperProps = { username, avatar, date, shopName, text };
   const PostFooterProps = { likes, comments, didLike };
   const [searchParams, setSearchParams] = useSearchParams();
 
   const { ref: cardRef } = useInView({
-    root: el,
+    // root,
+    // trackVisibility: true,
+    // delay: 100,
     threshold: 0.8,
     onChange: (inView) => {
       /**
@@ -60,8 +62,9 @@ function Post({
        */
       const viewItemLocalStorage = localStorage.getItem(id);
       if (inView) {
-        if (viewItemLocalStorage) setSearchParams({});
-        else {
+        if (viewItemLocalStorage) {
+          setSearchParams({});
+        } else {
           localStorage.setItem(id, JSON.stringify(true));
           setSearchParams({ userId, itemId: id });
         }
@@ -70,7 +73,7 @@ function Post({
   });
 
   return (
-    <Card data-testid={`${index}-element`} sx={postSX} key={id}>
+    <Card ref={cardRef} data-testid={`${index}-element`} sx={postSX} key={id}>
       <PostUpper {...PostUpperProps} />
       <PostMain images={images} />
       <PostFooter {...PostFooterProps} />
