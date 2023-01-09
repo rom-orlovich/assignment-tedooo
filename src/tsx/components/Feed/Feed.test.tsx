@@ -1,8 +1,10 @@
+import { mockIntersectionObserver } from "jsdom-testing-mocks";
 import { renderUI } from "../../../tests/utilities";
 
 import Feed from "./Feed";
 
 describe("Tests the Feed component", () => {
+  mockIntersectionObserver();
   let screen: ReturnType<typeof renderUI>;
   beforeEach(() => {
     screen = renderUI(<Feed />);

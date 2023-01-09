@@ -1,8 +1,10 @@
 import { fireEvent } from "@testing-library/react";
+import { mockIntersectionObserver } from "jsdom-testing-mocks";
 import { renderUI } from "../../../../../tests/utilities";
 import App from "../../../../App";
 
 describe("Tests search autocomplete and the results feed", () => {
+  mockIntersectionObserver();
   let screen: ReturnType<typeof renderUI>;
 
   beforeEach(() => {
